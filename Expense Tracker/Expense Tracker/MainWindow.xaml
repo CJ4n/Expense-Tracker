@@ -6,7 +6,72 @@
         xmlns:local="clr-namespace:Expense_Tracker"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+    <Window.Resources>
+        <!--<Style x:Key="ExpenseItemStyle" TargetType="Expense_Tracker.ExpenseItem">
+            <Setter Property="BorderBrush" Value="{ThemeResource SystemColors.WindowFrameBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="{ThemeResource SystemColors.WindowBrush}"/>
+            <Setter Property="Foreground" Value="{ThemeResource SystemColors.WindowTextBrush}"/>
+            <Setter Property="FontFamily" Value="{ThemeResource SystemFonts.MessageFontFamily}"/>
+            <Setter Property="FontSize" Value="{ThemeResource SystemFonts.MessageFontSize}"/>
+            <Setter Property="FontWeight" Value="{ThemeResource SystemFonts.MessageFontWeight}"/>
+        </Style>
+        <Style x:Key="ExpenseItemStyle_Selected" TargetType="Expense_Tracker.ExpenseItem">
+            <Setter Property="BorderBrush" Value="{ThemeResource SystemColors.HighlightBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="{ThemeResource SystemColors.HighlightBrush}"/>
+            <Setter Property="Foreground" Value="{ThemeResource SystemColors.HighlightTextBrush}"/>
+            <Setter Property="FontFamily" Value="{ThemeResource SystemFonts.MessageFontFamily}"/>
+            <Setter Property="FontSize" Value="{ThemeResource SystemFonts.MessageFontSize}"/>
+            <Setter Property="FontWeight" Value="{ThemeResource SystemFonts.MessageFontWeight}"/>
+        </Style>
+        <Style x:Key="ExpenseItemStyle_Selected_MouseOver" TargetType="Expense_Tracker.ExpenseItem">
+            <Setter Property="BorderBrush" Value="{ThemeResource SystemColors.HighlightBrush}"/>-->
+
+        <local:MethodToValueConverter x:Key="MethodToValueConverter"/>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width ="*"/>
+            <ColumnDefinition Width ="5"/>
+            <ColumnDefinition Width ="200"/>
+        </Grid.ColumnDefinitions>
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
+        <Grid Grid.Column="2">
+            <!--<Grid.ColumnDefinitions>
+                <ColumnDefinition Width ="*"/>
+                <ColumnDefinition Width ="*"/>
+            </Grid.ColumnDefinitions>-->
+            <!--<Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>-->
+            <StackPanel >
+                <TextBlock Text="Account" Padding="5"/>
+                <ComboBox ItemsSource="{Binding  Converter={StaticResource MethodToValueConverter}}"
+                          Padding="5"/>
+                <TextBlock Text="Description" Padding="5"/>
+                <TextBox Padding="5"/>
+                <TextBlock Text="Category" Padding="5"/>
+                <TextBox Padding="5"/>
+                <TextBlock Text="Date" Padding="5"/>
+                <TextBox Padding="5"/>
+                <TextBlock Text="Buyer" Padding="5"/>
+                <TextBox Padding="5"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

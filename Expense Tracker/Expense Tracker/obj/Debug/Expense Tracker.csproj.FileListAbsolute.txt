@@ -1,0 +1,17 @@
+C:\Users\Janek C\Desktop\Expense-Tracker\Expense Tracker\Expense Tracker\bin\Debug\Expense Tracker.exe.config
+C:\Users\Janek C\Desktop\Expense-Tracker\Expense Tracker\Expense Tracker\bin\Debug\Expense Tracker.exe
+C:\Users\Janek C\Desktop\Expense-Tracker\Expense Tracker\Expense Tracker\bin\Debug\Expense Tracker.pdb
+C:\Users\Janek C\Desktop\Expense-Tracker\Expense Tracker\Expense Tracker\obj\Debug\Expense Tracker.csproj.AssemblyReference.cache
+C:\Users\Janek C\Desktop\Expense-Tracker\Expense Tracker\Expense Tracker\obj\Debug\Expense Tracker.csproj.SuggestedBindingRedirects.cache
+C:\Users\Janek C\Desktop\Expense-Tracker\Expense Tracker\Expense Tracker\obj\Debug\MainWindow.g.cs
+C:\Users\Janek C\Desktop\Expense-Tracker\Expense Tracker\Expense Tracker\obj\Debug\App.g.cs
+C:\Users\Janek C\Desktop\Expense-Tracker\Expense Tracker\Expense Tracker\obj\Debug\Expense Tracker_MarkupCompile.cache
+C:\Users\Janek C\Desktop\Expense-Tracker\Expense Tracker\Expense Tracker\obj\Debug\Expense Tracker_MarkupCompile.lref
+C:\Users\Janek C\Desktop\Expense-Tracker\Expense Tracker\Expense Tracker\obj\Debug\MainWindow.baml
+C:\Users\Janek C\Desktop\Expense-Tracker\Expense Tracker\Expense Tracker\obj\Debug\Expense Tracker.g.resources
+C:\Users\Janek C\Desktop\Expense-Tracker\Expense Tracker\Expense Tracker\obj\Debug\Expense_Tracker.Properties.Resources.resources
+C:\Users\Janek C\Desktop\Expense-Tracker\Expense Tracker\Expense Tracker\obj\Debug\Expense Tracker.csproj.GenerateResource.cache
+C:\Users\Janek C\Desktop\Expense-Tracker\Expense Tracker\Expense Tracker\obj\Debug\Expense Tracker.csproj.CoreCompileInputs.cache
+C:\Users\Janek C\Desktop\Expense-Tracker\Expense Tracker\Expense Tracker\obj\Debug\Expense Tracker.exe
+C:\Users\Janek C\Desktop\Expense-Tracker\Expense Tracker\Expense Tracker\obj\Debug\Expense Tracker.pdb
+C:\Users\Janek C\Desktop\Expense-Tracker\Expense Tracker\Expense Tracker\obj\Debug\GeneratedInternalTypeHelper.g.cs

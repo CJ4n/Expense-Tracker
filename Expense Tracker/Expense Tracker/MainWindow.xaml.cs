@@ -20,9 +20,18 @@ namespace Expense_Tracker
     /// </summary>
     public partial class MainWindow : Window
     {
+   
         public MainWindow()
         {
+       
             InitializeComponent();
+            var a = Category.GetCategories();
+            int d;
         }
     }
+    //private class Expense
+    //{
+    //    public string Name { get; set; }
+    //    public double Amount { get; set; }
+    //}
 }
