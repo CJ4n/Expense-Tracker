@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Expense_Tracker
 {
-    static class Category
+    static class Account
     {
-        static public List<string> GetCategories()
+        static public List<string> GetAccount()
         {
             List<string> result = new List<string>();
-            var list = SQL.GetCategories();
-            foreach(var s in list)
+            var list = SQL.GetAccount();
+            foreach (var s in list)
             {
                 var splited = s.Split(';');
-                result.Add(splited[0]);
+                result.Add(splited[0]+" (" + splited[1] + " zł)");
             }
+
             return result;
-        }
+        } 
     }
 }

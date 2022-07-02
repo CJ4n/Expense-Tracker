@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+// TODO:
+// jakis mądry spsob na wyświetalnie listy kategori itd i potem łatwy spsoób na sprawdzene co jest wybranie (jakiś binding do czegoś, ale do czego i żeby ładnie było)
 namespace Expense_Tracker
 {
     /// <summary>
@@ -26,12 +28,9 @@ namespace Expense_Tracker
        
             InitializeComponent();
             var a = Category.GetCategories();
-            int d;
+            var b = SQL.GetPerson();
+            int xx;
         }
     }
-    //private class Expense
-    //{
-    //    public string Name { get; set; }
-    //    public double Amount { get; set; }
-    //}
+   
 }
