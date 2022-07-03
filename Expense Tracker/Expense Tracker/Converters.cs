@@ -40,6 +40,7 @@ namespace Expense_Tracker
             //PeopleManager.CreatePeopleList();
             //List<string>
             //return Person.GetPerson();
+            return Account.GetAccount();
             throw new NotImplementedException();
         }
 
