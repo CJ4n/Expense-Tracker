@@ -53,16 +53,20 @@ namespace Expense_Tracker
         {
             return ExecuteQuery("SELECT * FROM Category");
         }
-        static public List<string> GetAccount()
+        static public List<string> GetAccounts()
         {
             return ExecuteQuery("SELECT * FROM Account");
         }
-        static public List<string> GetPerson()
+        static public List<string> GetUsers()
         {
-            return ExecuteQuery("SELECT Name,Surname FROM Person");
+            return ExecuteQuery("SELECT * FROM Person");
         }
-        
-      
+        static public List<string> GetTransactions()
+        {
+            return ExecuteQuery("SELECT * FROM [Transaction]");
+        }
+
+
     }
 }
 

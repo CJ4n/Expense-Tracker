@@ -36,7 +36,7 @@
         <local:CategoriesConverter x:Key="CategoriesConverter"/>
         <local:AccountConverter x:Key="AccountConverter"/>
         <local:PersonConverter x:Key="PersonConverter"/>
-
+        <local: 
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -64,7 +64,7 @@
             </Grid.RowDefinitions>-->
             <StackPanel >
                 <TextBlock Text="Account" Padding="5"/>
-                <ComboBox ItemsSource="{Binding  Converter={StaticResource AccountConverter}}"
+                <ComboBox x:Name="accountBox" ItemsSource="{Binding  Converter={StaticResource AccountConverter}}"
                           Padding="5"/>
 
                 <TextBlock Text="Description" Padding="5"/>
@@ -72,13 +72,16 @@
                 <TextBlock Text="Category" Padding="5"/>
                 <ComboBox ItemsSource="{Binding  Converter={StaticResource CategoriesConverter}}"
                           Padding="5"/>
-                
+
                 <TextBlock Text="Date" Padding="5"/>
                 <TextBox Padding="5"/>
                 <TextBlock Text="Buyer" Padding="5"/>
                 <ComboBox ItemsSource="{Binding  Converter={StaticResource PersonConverter}}"
                           Padding="5"/>
             </StackPanel>
+        </Grid>
+        <Grid>
+            <Button Click="Button_Click"/>
         </Grid>
     </Grid>
 </Window>
