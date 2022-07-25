@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace Expense_Tracker
 {
     public class Account
     {
-        private string AccountId;
-        private float Balance;
+        public string AccountId { get; set; }
+        public float Balance { get; set; }
         public Account(string accountId, float balance)
         {
             this.AccountId = accountId;
@@ -28,18 +25,18 @@ namespace Expense_Tracker
         //    return result;
         //}
     }
-    
-    public  class AccountManager
+
+    public class AccountManager
     {
-        static public List<Account> accounts;
-        public static List<Account> GetAccounts()
+        static public ObservableCollection<Account> accounts;
+        public static ObservableCollection<Account> GetAccounts()
         {
-            List<Account> result = new List<Account>();
+            ObservableCollection<Account> result = new ObservableCollection<Account>();
             var accountsString = SQL.GetAccounts();
             foreach (var a in accountsString)
             {
                 var tmp = a.Split(';');
-             
+
                 if (!float.TryParse(tmp[1], out float balance))
                 {
                     throw new Exception("Invalid data from database");

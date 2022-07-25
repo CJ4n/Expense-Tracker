@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Expense_Tracker
 {
@@ -32,10 +29,10 @@ namespace Expense_Tracker
                                 string tmp = "";
                                 for (int i = 0; i < reader.FieldCount; i++)
                                 {
-                                    tmp += reader[i].ToString()+";";
-                             
+                                    tmp += reader[i].ToString() + ";";
+
                                 }
-                              
+
                                 result.Add(tmp);
                             }
                         }
@@ -66,6 +63,26 @@ namespace Expense_Tracker
             return ExecuteQuery("SELECT * FROM [Transaction]");
         }
 
+        static public void AddTransaction(string accountID, DateTime transactionDate, int amount, Category category,
+            string description, int buyerID, string transactionType)
+        {
+            using (SqlConnection connection = GetSqlConnection())
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("INSERT INTO [Transaction] (AccountId, TransactionDate, Amount, CategoryName, [Description] ," +
+                    " BuyerID,Transaction_Type) VALUES (@AccountId, @TransactionDate, @Amount, @CategoryId,@Description, @BuyerID, @Transaction_Type)", connection))
+                {
+                    command.Parameters.AddWithValue("@AccountId", accountID);
+                    command.Parameters.AddWithValue("@TransactionDate", transactionDate.Date);
+                    command.Parameters.AddWithValue("@Amount", amount);
+                    command.Parameters.AddWithValue("@CategoryId", category.Name);
+                    command.Parameters.AddWithValue("@Description", description);
+                    command.Parameters.AddWithValue("@BuyerID", 1);
+                    command.Parameters.AddWithValue("@Transaction_Type", transactionType);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
 
     }
 }

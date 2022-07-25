@@ -1,43 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-// TODO:
-// jakis mądry spsob na wyświetalnie listy kategori itd i potem łatwy spsoób na sprawdzene co jest wybranie (jakiś binding do czegoś, ale do czego i żeby ładnie było)
 namespace Expense_Tracker
 {
-
-
-    public static class tmp
-    {
-        public static MainWindow win;
-    }
-
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<Account> accountsList;
-        private List<Category> categoriesList;
-        private List<Transaction> transactionsList;
-        private List<User> usersList;
+        private ObservableCollection<Account> accountsList;
+        private ObservableCollection<Category> categoriesList;
+        private ObservableCollection<Transaction> transactionsList;
+        private ObservableCollection<User> usersList;
 
-        public List<Account> AccountList { get { return accountsList; } }
-        public List<Category> CategoriesList { get { return categoriesList; } }
-        public List<Transaction> TransactionsList { get { return transactionsList; } }
-        public List<User> UsersList { get { return usersList; } }
+        public ObservableCollection<Account> AccountList { get { return accountsList; } }
+        public ObservableCollection<Category> CategoryList { get { return categoriesList; } }
+        public ObservableCollection<Transaction> TransactionsList { get { return transactionsList; } }
+        public ObservableCollection<User> UsersList { get { return usersList; } }
         private void InitializeData()
         {
             usersList = UserManager.GetUsers();
@@ -48,19 +28,36 @@ namespace Expense_Tracker
 
         public MainWindow()
         {
-            InitializeComponent();
             InitializeData();
-            //var a = Category.GetCategories();
-            //var b = SQL.GetPerson();
-            int xx;
-            tmp.win = this;
+            InitializeComponent();
             this.DataContext = this;
-            //test();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonAddTransction_Click(object sender, RoutedEventArgs e)
         {
-            var ret = tmp.win.accountBox.SelectedValue;
+            if (this.accountComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an account");
+                return;
+            }
+            if (this.categoryComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an category");
+                return;
+            }
+            if (this.amountTextBox.Text == "")
+            {
+                MessageBox.Show("Please enter amount of money");
+                return;
+            }
+            int amount;
+            int.TryParse(this.descriptionTextBox.Text, out amount);
+            string transactionType = "Expense";
+            if (this.RadioButtonExpense.IsChecked == false)
+                transactionType = "Income";
+
+            SQL.AddTransaction(((Account)this.accountComboBox.SelectedItem).AccountId, (DateTime)this.datePicker.SelectedDate, amount,
+                 (Category)this.categoryComboBox.SelectedItem, this.descriptionTextBox.Text, 1/*TODO: add option to choce person*/, transactionType);
 
         }
     }

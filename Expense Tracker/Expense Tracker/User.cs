@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Expense_Tracker
 {
@@ -11,6 +9,9 @@ namespace Expense_Tracker
         string name;
         string surname;
         int id;
+        public int Id { get { return id; } }
+        public string Name { get { return name; } }
+        public string Surname { get { return surname; } }
         public User(int i, string n, string sn)
         {
             name = n;
@@ -18,12 +19,12 @@ namespace Expense_Tracker
             id = i;
         }
     }
-     public class UserManager
+    public class UserManager
     {
-      static public List<User> users;
-        static public List<User> GetUsers()
+        static public ObservableCollection<User> users;
+        static public ObservableCollection<User> GetUsers()
         {
-            List<User> result =new List<User>();
+            ObservableCollection<User> result = new ObservableCollection<User>();
             var usersString = SQL.GetUsers();
             foreach (var u in usersString)
             {
@@ -38,6 +39,11 @@ namespace Expense_Tracker
             }
             users = result;
             return result;
+        }
+        static public User GetUserById(int id)
+        {
+            var user = users.Where(u => u.Id == id).First();
+            return user;
         }
     }
 }

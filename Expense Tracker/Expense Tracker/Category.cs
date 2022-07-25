@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 
 namespace Expense_Tracker
 {
@@ -29,11 +24,11 @@ namespace Expense_Tracker
 
     public class CategoryManager
     {
-        static public List<Category> categories;
+        static public ObservableCollection<Category> categories { get; set; }
 
-        public static List<Category> GetCategories()
+        static public ObservableCollection<Category> GetCategories()
         {
-            List<Category> result = new List<Category>();
+            ObservableCollection<Category> result = new ObservableCollection<Category>();
             var categoriesString = SQL.GetCategories();
             foreach (var c in categoriesString)
             {

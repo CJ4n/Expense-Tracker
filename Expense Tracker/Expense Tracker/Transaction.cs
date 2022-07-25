@@ -1,20 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace Expense_Tracker
 {
     public class Transaction
     {
-        public int TransactionId { get; set; }
-        public string AccountId { get; set; }
-        public DateTime TransactionDate { get; set; }
-        public double Amount { get; set; }
-        public Category Category { get; set; }
-        public string Details { get; set; }
-        public int UserId { get; set; }
+        public int TransactionId { get; private set; }
+        public string AccountId { get; private set; }
+
+        //private DateTime _transactionDate;
+        public DateTime TransactionDate { get; private set; }
+
+        public double Amount { get; private set; }
+        public Category Category { get; private set; }
+        public string Details { get; private set; }
+        public int BuyerID { get; private set; }
         public Transaction(int transactionId, string accountId, DateTime transactionDate, double amount, Category category, string details, int userId)
         {
             TransactionId = transactionId;
@@ -23,15 +23,15 @@ namespace Expense_Tracker
             Amount = amount;
             Category = category;
             Details = details;
-            UserId = userId;
+            BuyerID = userId;
         }
     }
-    public  class TransactionManager
+    public class TransactionManager
     {
-        static public List<Transaction> transactions;
-        public static List<Transaction> GetTransactions()
+        static public ObservableCollection<Transaction> transactions;
+        public static ObservableCollection<Transaction> GetTransactions()
         {
-            List<Transaction> result = new List<Transaction>();
+            ObservableCollection<Transaction> result = new ObservableCollection<Transaction>();
             var transactionsString = SQL.GetTransactions();
             foreach (var t in transactionsString)
             {
@@ -63,7 +63,7 @@ namespace Expense_Tracker
 
                 }
 
-                Transaction NewTransaction = new Transaction(id, tmp[1], date, amount, new Category(tmp[4]), tmp[5],userId);
+                Transaction NewTransaction = new Transaction(id, tmp[1], date, amount, new Category(tmp[4]), tmp[5], userId);
                 result.Add(NewTransaction);
             }
             transactions = result;
