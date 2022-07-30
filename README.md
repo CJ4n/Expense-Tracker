@@ -1,6 +1,6 @@
 # Expense-Tracker
 
-Desktop app design to keep track of your expenses.
+esktop app design to help you keep track of your expenses.
 
 For now you can add and brows your expenes history.
 
